@@ -1,0 +1,43 @@
+{
+  "authentication": {
+    "class": "solr.BasicAuthPlugin",
+    "credentials": {
+      "solr": "72U9trHGUU7SzmoXitxrBjx+kTyKOEJwZJRWqdGq/3Q= ejVwYnp1NXVyYm9jZ2llcA=="
+    },
+    "blockUnknown": false
+  },
+  "authorization": {
+    "class": "solr.RuleBasedAuthorizationPlugin",
+    "permissions": [
+      {
+        "name": "read",
+        "role": "reader"
+      },
+      {
+        "name": "update",
+        "role": "editor"
+      },
+      {
+        "name": "all",
+        "role": "admin"
+      },
+      {
+        "name": "read",
+        "collection": "books",
+        "role": "reader"
+      },
+      {
+        "name": "update",
+        "collection": "books",
+        "role": "editor"
+      }
+    ],
+    "user-role": {
+      "solr": [
+        "admin",
+        "reader",
+        "editor"
+      ]
+    }
+  }
+}

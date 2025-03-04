@@ -1,5 +1,11 @@
 version: '1'
 services:
+  solr:
+    image: solr:slim
+    container_name: solr
+    ports:
+    - "8983:8983"
+
   be:
     image: shegga/phung_be:jenkins
     container_name: phung_be
