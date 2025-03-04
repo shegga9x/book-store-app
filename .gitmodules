@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/shegga9x/phungbackend.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/shegga9x/phungfrontend.git
