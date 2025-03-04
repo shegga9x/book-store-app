@@ -1,0 +1,35 @@
+version: '1'
+services:
+  be:
+    image: shegga/phung_be:jenkins
+    container_name: phung_be
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - DATABASE_HOST=phung-vip-db.cxoa0mia8nkk.ap-southeast-1.rds.amazonaws.com
+      - DATABASE_USERNAME=admin
+      - DATABASE_PASSWORD=iMbFfqQvBEc2i0gxAqn8
+      - DATABASE_PORT=3306
+      - ALLOWED_ORIGINS=https://phungvipfrontend.vercel.app
+      - BASE_URL=https://phungvip.io.vn
+      - PROXY_HOST=103.156.91.191
+      - PROXY_PORT=2021
+      - PROXY_USER=ipzn6e1o
+      - PROXY_PASS=iPZN6e1O
+      - SOLR_URL=http://localhost:8983/solr
+    networks:
+      - app_net
+
+  caddy:
+    image: caddy:latest
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - "8080:8080"
+      - "443:443"
+      - "80:80"
+    restart: unless-stopped
+networks:
+  app_net:
+    driver: bridge

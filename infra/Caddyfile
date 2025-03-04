@@ -1,0 +1,20 @@
+phungvip.io.vn {
+    route /api/* {
+        reverse_proxy 18.136.193.118:8081
+    }
+
+    route /oauth2/authorization/* {
+        reverse_proxy 18.136.193.118:8081
+    }
+
+    route /login/oauth2/code/* {
+        reverse_proxy 18.136.193.118:8081
+    }
+
+    route * {
+          reverse_proxy https://phungvipfrontend.vercel.app {
+             header_up Host {upstream_hostport}
+             header_up X-Forwarded-Host {host}
+          }
+    }
+}
