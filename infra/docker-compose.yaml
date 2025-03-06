@@ -41,7 +41,7 @@ services:
       - PROXY_PORT=2021
       - PROXY_USER=ipzn6e1o
       - PROXY_PASS=iPZN6e1O
-      - COOKIE_DOMAIN: phungvip.io.vn
+      - SESSION_DOMAIN: phungvip.io.vn
       - SOLR_URL=http://localhost:8983/solr
     networks:
       - app_net
