@@ -41,8 +41,10 @@ services:
       - PROXY_PORT=2021
       - PROXY_USER=ipzn6e1o
       - PROXY_PASS=iPZN6e1O
-      - SESSION_DOMAIN: phungvip.io.vn
+      - SESSION_DOMAIN=phungvip.io.vn
       - SOLR_URL=http://localhost:8983/solr
+      - REDIS_HOST=18.136.193.118
+      - REDIS_PORT=6379
     networks:
       - app_net
   caddy:
